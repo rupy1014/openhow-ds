@@ -7,28 +7,57 @@ Toss Design System에서 영감받은 깔끔하고 미니멀한 React 디자인 
 
 ```
 @openhow/ds 생태계
-├── core (Private)              ← 소스코드 비공개
-│   ├── core/tokens/            ← @openhow/ds-tokens (npm)
-│   ├── core/react/             ← @openhow/ds (npm)
-│   └── apps/docs/              ← 개발용 docs 앱
-│
-├── openhow-ds (Public)         ← 이 저장소
-│   ├── README.md               ← 설치 가이드, 컴포넌트 목록, MCP 매뉴얼
-│   └── examples/
-│       └── vite-react/         ← Vite + React 데모 (npm 패키지 사용)
-│       └── (android/)          ← 예정
-│       └── (ios/)              ← 예정
-│
-└── npm
-    ├── @openhow/ds-tokens      ← CSS 변수, 14개 테마
-    └── @openhow/ds             ← React 컴포넌트 58개
+
+┌─────────────────────────────────────────────────────┐
+│  Core (Private Repo)                                │
+│  소스코드 비공개 · 빌드 파이프라인                        │
+│                                                     │
+│  core/tokens/   → npm: @openhow/ds-tokens           │
+│  core/react/    → npm: @openhow/ds                  │
+│  apps/docs/     → 개발용 docs 앱                      │
+└──────────────┬──────────────────────────────────┬────┘
+               │ build & publish                  │
+               ▼                                  ▼
+┌──────────────────────────┐  ┌───────────────────────┐
+│  npm (Public)            │  │  GitHub (Public)       │
+│                          │  │  rupy1014/openhow-ds   │
+│  @openhow/ds-tokens      │  │                       │
+│    CSS 변수, 14개 테마     │  │  README.md            │
+│    색상, 간격, 타이포       │  │  examples/            │
+│                          │  │    vite-react/         │
+│  @openhow/ds             │  │    (android/) 예정      │
+│    React 컴포넌트 58개     │  │    (ios/) 예정          │
+│    dist/ 만 포함           │  │                       │
+└──────────────────────────┘  └───────────────────────┘
 ```
 
-| 구분 | 저장소 | 공개 여부 | 설명 |
-|------|--------|----------|------|
-| 소스코드 | core (Private) | 비공개 | 컴포넌트 원본, 빌드 파이프라인 |
-| 문서 + 예제 | openhow-ds | 공개 | 사용법, 예제 코드 |
-| 배포 패키지 | npm | 공개 | `dist/`만 포함 (소스코드 미포함) |
+### 패키지를 두 개로 나눈 이유
+
+| 패키지 | 내용 | 용도 |
+|--------|------|------|
+| `@openhow/ds-tokens` | CSS 변수 (색상, 간격, 테마) | 모든 플랫폼에서 공유 가능 |
+| `@openhow/ds` | React 컴포넌트 | React 프로젝트 전용 |
+
+토큰을 분리하면 나중에 Android/iOS/Flutter SDK를 만들 때 동일한 디자인 토큰을 재사용할 수 있습니다.
+
+### npm 패키지 정보
+
+| | @openhow/ds-tokens | @openhow/ds |
+|--|---------------------|-------------|
+| 버전 | 0.1.0 | 0.1.0 |
+| 설치 | `npm i @openhow/ds-tokens` | `npm i @openhow/ds` |
+| 크기 | ~6 KB | ~58 KB |
+| 내용 | CSS 변수, 테마 정의 | React 컴포넌트 58개 + 스타일 |
+| 의존성 | 없음 | `@openhow/ds-tokens`, `react` |
+| 소스코드 | 미포함 (dist만 배포) | 미포함 (dist만 배포) |
+
+### 저장소
+
+| 저장소 | 공개 여부 | URL |
+|--------|----------|-----|
+| Core | 비공개 | Private |
+| 문서 + 예제 | 공개 | [github.com/rupy1014/openhow-ds](https://github.com/rupy1014/openhow-ds) |
+| npm | 공개 | [npmjs.com/package/@openhow/ds](https://www.npmjs.com/package/@openhow/ds) |
 
 ## 설치
 
@@ -79,7 +108,7 @@ function App() {
 | `ocean` | 시원한 바다 느낌 |
 | `forest` | 자연 친화적 그린 톤 |
 
-## 컴포넌트 목록
+## 컴포넌트 목록 (58개)
 
 ### Actions
 Button, IconButton, TextButton, BottomCTA
@@ -105,7 +134,7 @@ NumberKeypad, AlphabetKeypad, SecureKeypad
 ### Compound
 AgreementGroup, AgreementItem, AccordionGroup, AccordionItem
 
-## Claude Code에서 사용하기 (MCP)
+## Claude Code에서 사용하기
 
 Claude Code와 함께 사용하면 AI가 컴포넌트를 자동으로 조합해서 UI를 만들어줍니다.
 
@@ -136,6 +165,12 @@ Claude Code에게 다음과 같이 요청할 수 있습니다:
 ## Examples
 
 - [Vite + React](./examples/vite-react/) — 58개 전체 컴포넌트 데모
+
+```bash
+cd examples/vite-react
+npm install
+npm run dev
+```
 
 ## License
 
