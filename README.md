@@ -1,7 +1,7 @@
 # @openhow/ds
 
 Toss Design System에서 영감받은 깔끔하고 미니멀한 React 디자인 시스템.
-58개 컴포넌트와 14개 테마를 제공합니다.
+58개 컴포넌트와 15개 테마를 제공합니다.
 
 ## 프로젝트 구성
 
@@ -22,7 +22,7 @@ Toss Design System에서 영감받은 깔끔하고 미니멀한 React 디자인 
 │  npm (Public)            │  │  GitHub (Public)       │
 │                          │  │  rupy1014/openhow-ds   │
 │  @openhow/ds-tokens      │  │                       │
-│    CSS 변수, 14개 테마     │  │  README.md            │
+│    CSS 변수, 15개 테마     │  │  README.md            │
 │    색상, 간격, 타이포       │  │  examples/            │
 │                          │  │    vite-react/         │
 │  @openhow/ds             │  │    (android/) 예정      │
@@ -107,6 +107,7 @@ function App() {
 | `linear` | Linear 바이올렛 |
 | `ocean` | 시원한 바다 느낌 |
 | `forest` | 자연 친화적 그린 톤 |
+| `csflow` | AI 고객지원 퍼플 |
 
 ## 컴포넌트 목록 (58개)
 

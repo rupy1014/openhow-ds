@@ -108,7 +108,7 @@ export function App() {
   };
 
   // Theme
-  const themes = ['toss', 'dark', 'green', 'purple', 'orange', 'rose', 'bootpay', 'yanolja', 'naver', 'stripe', 'kakao', 'danggeun', 'coupang', 'vercel'] as const;
+  const themes = ['toss', 'dark', 'green', 'purple', 'orange', 'rose', 'bootpay', 'yanolja', 'naver', 'stripe', 'kakao', 'danggeun', 'coupang', 'vercel', 'csflow'] as const;
   const [currentTheme, setCurrentTheme] = useState<string>('toss');
   const applyTheme = (theme: string) => {
     setCurrentTheme(theme);
@@ -150,7 +150,7 @@ export function App() {
               purple: '#7C3AED', orange: '#F97316', rose: '#F43F5E',
               bootpay: '#507CF3', yanolja: '#4154FF',
               naver: '#03AA5A', stripe: '#533AFD',
-              kakao: '#FAE100', danggeun: '#FF6F0F', coupang: '#E52528', vercel: '#171717',
+              kakao: '#FAE100', danggeun: '#FF6F0F', coupang: '#E52528', vercel: '#171717', csflow: '#8B5CF6',
             };
             return (
               <button
@@ -184,6 +184,7 @@ export function App() {
             danggeun: { label: 'Danggeun', desc: '당근마켓 오렌지' },
             coupang: { label: 'Coupang', desc: '쿠팡 레드' },
             vercel: { label: 'Vercel', desc: '버셀 모노톤 블랙' },
+            csflow: { label: 'CSFlow', desc: 'AI 고객지원 퍼플' },
           };
           const info = themeInfo[currentTheme];
           return info ? (
