@@ -3,6 +3,33 @@
 Toss Design System에서 영감받은 깔끔하고 미니멀한 React 디자인 시스템.
 58개 컴포넌트와 14개 테마를 제공합니다.
 
+## 프로젝트 구성
+
+```
+@openhow/ds 생태계
+├── core (Private)              ← 소스코드 비공개
+│   ├── core/tokens/            ← @openhow/ds-tokens (npm)
+│   ├── core/react/             ← @openhow/ds (npm)
+│   └── apps/docs/              ← 개발용 docs 앱
+│
+├── openhow-ds (Public)         ← 이 저장소
+│   ├── README.md               ← 설치 가이드, 컴포넌트 목록, MCP 매뉴얼
+│   └── examples/
+│       └── vite-react/         ← Vite + React 데모 (npm 패키지 사용)
+│       └── (android/)          ← 예정
+│       └── (ios/)              ← 예정
+│
+└── npm
+    ├── @openhow/ds-tokens      ← CSS 변수, 14개 테마
+    └── @openhow/ds             ← React 컴포넌트 58개
+```
+
+| 구분 | 저장소 | 공개 여부 | 설명 |
+|------|--------|----------|------|
+| 소스코드 | core (Private) | 비공개 | 컴포넌트 원본, 빌드 파이프라인 |
+| 문서 + 예제 | openhow-ds | 공개 | 사용법, 예제 코드 |
+| 배포 패키지 | npm | 공개 | `dist/`만 포함 (소스코드 미포함) |
+
 ## 설치
 
 ```bash
